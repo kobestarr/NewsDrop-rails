@@ -4,7 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+
+# postgresQL is the detabase on Heroku
+gem 'pg', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -61,4 +64,7 @@ gem 'kaminari'
 
 #lets add in tags on our stories
 gem 'acts-as-taggable-on'
+
+# lets make heroku work with rails 4
+gem 'rails_12factor', group: :production
 
