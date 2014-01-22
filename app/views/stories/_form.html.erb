@@ -1,0 +1,15 @@
+
+
+<%= simple_form_for @story do |form| %>
+
+	
+	<%= form.input :title %>
+	<%= form.input :description %>
+	<%= form.input :url, label: "Web Link" %>
+	<%= form.input :tag_list, label: "Tags" %>
+
+	<%= form.button :submit, "Save Story?" %>
+	<!-- The "Save Story?" is the code to change the text on a button -->
+
+<% end %>
+

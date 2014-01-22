@@ -1,0 +1,68 @@
+<h1>THIS IS kobi</h1>
+
+<p>
+
+my username is <%= @username%>	
+
+
+</p>
+
+<p>
+	The time right now is <%= @righthere_rightnow %>
+
+
+</p>
+
+<%= content_for :page_title, "Recent Stories"%>
+
+
+<section class = "stories">
+	<% @stories.each  do |story| %> 
+
+		<div class="story">
+		
+		
+		<h2> <%= link_to story.title, story.url %> </h2>
+		<p> <%= story.description %></p>
+
+
+		<ul>
+			<li>
+				<%= link_to "Upvote",	
+							story_votes_path(story, back_to: "home"),
+							method: :post
+
+
+				%>
+
+
+			</li>
+			<li> <%= link_to pluralize(story.comments.count, "comment"), story_path(story) %> </li> 
+			<!-- need to tell it which story to lead to then it should be current story as signified by the "(story)" -->
+
+			<li><%= story.nice_url %></li>
+			<li><%= pluralize story.votes.count, "vote" %></li>
+			<li> <%= time_ago_in_words  story.created_at %> yo! </li>
+
+
+
+
+		</ul>
+
+
+		</div>
+
+			
+
+
+
+	<% end %>
+
+
+
+</section>
+
+<%= paginate @stories %>
+
+
+<%= link_to "Submit your own link", new_story_path %>

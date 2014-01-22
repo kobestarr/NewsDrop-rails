@@ -1,0 +1,11 @@
+<h2> add a comment </h2>
+
+<%= simple_form_for [@story, @comment] do |form| %>
+
+<%= form.input :body, label: "What is your comment?" %>
+
+<%= form.button	 :submit, "Save comment" %>
+
+
+
+<% end%>	
